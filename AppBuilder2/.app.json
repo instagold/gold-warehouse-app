@@ -1,11 +1,136 @@
 {
   "type": "kendo-ui-mobile",
-  "isNew": true,
+  "name": "Kendo UI Mobile App",
+  "navigation": "listmenu",
+  "views": [
+    {
+      "type": "view",
+      "name": "home",
+      "title": "Home",
+      "addToNavigation": true,
+      "icon": "\\E0AF",
+      "components": []
+    },
+    {
+      "type": "view",
+      "name": "formView",
+      "title": "Log into Issuance Account",
+      "addToNavigation": true,
+      "icon": "\\E0A4",
+      "components": [
+        {
+          "type": "form",
+          "name": "formViewForm",
+          "submitButton": "Login",
+          "cancelButton": "Cancel",
+          "components": [
+            {
+              "type": "field",
+              "name": "skeyIssuer",
+              "title": "Secret Key",
+              "inputType": "text",
+              "placeholder": "Ripple Account Secret Key"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "view",
+      "name": "formIssueAgainstGoldDeposit",
+      "title": "Deposit Gold",
+      "addToNavigation": true,
+      "icon": "\\E096",
+      "components": [
+        {
+          "type": "form",
+          "name": "formIssueAgainstGoldDepositForm",
+          "submitButton": "Issue XAU",
+          "cancelButton": "Cancel",
+          "components": [
+            {
+              "type": "field",
+              "name": "amtTendered",
+              "title": "Deposit Amount (TroyOz)",
+              "inputType": "number"
+            },
+            {
+              "type": "field",
+              "name": "fboAccount",
+              "title": "Deposit Account",
+              "inputType": "text",
+              "placeholder": "Account to get XAU"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "view",
+      "name": "formWithdraw",
+      "title": "Withdraw Gold",
+      "addToNavigation": true,
+      "icon": "\\E096",
+      "components": [
+        {
+          "type": "form",
+          "name": "formWithdrawForm",
+          "submitButton": "Confirm",
+          "cancelButton": "Cancel",
+          "components": [
+            {
+              "type": "field",
+              "name": "amtWithdrawn",
+              "title": "Withdrawn (Troy Oz)",
+              "inputType": "number"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "type": "view",
+      "name": "dataListView",
+      "title": "County List",
+      "addToNavigation": true,
+      "icon": "\\E077",
+      "components": [
+        {
+          "type": "list",
+          "name": "dataListViewList",
+          "dataProvider": "defaultProvider",
+          "collection": "counties",
+          "masterDetails": true,
+          "iconField": true,
+          "headerField": "Texas Counties",
+          "pullToRefresh": false,
+          "endlessScroll": false
+        }
+      ]
+    },
+    {
+      "type": "view",
+      "name": "viewDepositResult",
+      "title": "Deposit Record",
+      "addToNavigation": false,
+      "components": []
+    },
+    {
+      "type": "view",
+      "name": "viewWithdrawalResult",
+      "title": "Withdrawl Result",
+      "addToNavigation": false,
+      "components": []
+    }
+  ],
+  "view": "home",
+  "skin": "flat",
+  "transition": "slide",
   "dataProviders": [
     {
       "type": "dataProvider",
-      "title": "DefaultProvider",
       "name": "defaultProvider",
+      "title": "DefaultProvider",
       "source": "everlive",
       "everliveKey": "QInPCTt4JQTR3eIZ"
     }

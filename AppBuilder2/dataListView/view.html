@@ -1,0 +1,13 @@
+<div data-role="view" data-title="County List" data-layout="main" data-model="app.models.dataListView">
+
+    <ul data-role="listview" data-style="inset" data-template="dataListViewListTemplate" data-bind="{ source: dataListViewList.viewModel.dataSource, events: {click: dataListViewList.viewModel.itemClick} }" data-pull-to-refresh="false" data-endless-scroll="false">
+
+    </ul>
+    <script type="text/x-kendo-template" id="dataListViewListTemplate">
+        <div class="image-with-text">
+
+            <h3><span class="#: data.icon() #"></span>#: data.Texas Counties #</h3>
+
+        </div>
+    </script>
+</div>

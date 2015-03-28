@@ -1,0 +1,72 @@
+#kendo-ui-mobile-app .image-with-text img {
+    float: left;
+    margin-right: 15px;
+}
+
+#kendo-ui-mobile-app .button-block,
+#kendo-ui-mobile-app .block {
+    display: block;
+    margin: 1em;
+    padding: 1em;
+    text-align: center;
+}
+
+#kendo-ui-mobile-app .button-submit {
+    background-color: #10c4b2;
+    color: white;
+}
+
+#kendo-ui-mobile-app .button-group {
+    width: 100%;
+    display: table;
+    border-collapse: separate;
+    border-spacing: 1em;
+}
+
+#kendo-ui-mobile-app .button-block {
+    display: table-cell;
+}
+
+#kendo-ui-mobile-app .group-separator {
+    border: none;
+    background: transparent;
+}
+
+#kendo-ui-mobile-app .group-separator-header {
+    margin: 1em 0;
+}
+
+#kendo-ui-mobile-app .app-icon {
+    text-align: center;
+    margin: 3em 0;
+}
+
+#kendo-ui-mobile-app .km-drawer-button:after,
+#kendo-ui-mobile-app .km-drawer-button:before {
+    content: '\e077';
+}
+
+.km-home:after,
+.km-home:before {
+    content: "\e\E0AF";
+}
+
+.km-formView:after,
+.km-formView:before {
+    content: "\e\E0A4";
+}
+
+.km-formIssueAgainstGoldDeposit:after,
+.km-formIssueAgainstGoldDeposit:before {
+    content: "\e\E096";
+}
+
+.km-formWithdraw:after,
+.km-formWithdraw:before {
+    content: "\e\E096";
+}
+
+.km-dataListView:after,
+.km-dataListView:before {
+    content: "\e\E077";
+}

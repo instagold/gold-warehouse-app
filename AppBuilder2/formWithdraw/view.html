@@ -1,0 +1,22 @@
+<div data-role="view" data-title="Withdraw Gold" data-layout="main" data-model="app.models.formWithdraw">
+    <div id="formWithdrawForm" class="form-view">
+        <form>
+            <ul class="form-content" data-role="listview" data-style="inset">
+                <li>
+                    <label>Withdrawn (Troy Oz)
+                        <input data-bind="value: formWithdrawForm.model.amtWithdrawn" type="number">
+                    </label>
+                </li>
+            </ul>
+
+            <div class="button-group">
+
+                <a class="button button-block" data-role="button" data-bind="events: { click: formWithdrawForm.cancel }">Cancel</a>
+
+
+                <a class="button button-block button-submit" data-role="button" data-bind="events: { click: formWithdrawForm.submit }">Confirm</a>
+
+            </div>
+        </form>
+    </div>
+</div>
