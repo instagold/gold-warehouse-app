@@ -6,7 +6,7 @@
   "DisplayName": "Republic of Texas Money",
   "Author": "",
   "Description": "Gold Warehouse App",
-  "BundleVersion": "1.0",
+  "BundleVersion": "1.0.1",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",
@@ -15,7 +15,9 @@
   "iOSBackgroundMode": [],
   "ProjectTypeGuids": "{070BCB52-5A75-4F8C-A973-144AF0EAFCC9}",
   "FrameworkVersion": "3.5.0",
-  "AndroidPermissions": [],
+  "AndroidPermissions": [
+    "android.permission.CAMERA"
+  ],
   "DeviceOrientations": [
     "Portrait",
     "Landscape"
@@ -36,5 +38,9 @@
     "ID_RESOLUTION_WVGA",
     "ID_RESOLUTION_WXGA",
     "ID_RESOLUTION_HD720P"
+  ],
+  "CorePlugins": [
+    "com.phonegap.plugins.barcodescanner",
+    "org.apache.cordova.camera"
   ]
 }

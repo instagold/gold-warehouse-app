@@ -4,17 +4,17 @@
             <ul class="form-content" data-role="listview" data-style="inset">
                 <li>
                     <label>Secret Key
-                        <input data-bind="value: formViewForm.model.skeyIssuer" placeholder="scan and login" type="password">
+                        <input id="skey" data-bind="value: formViewForm.model.skeyIssuer" placeholder="scan and login" type="password">
                     </label>
                 </li>
             </ul>
 
             <div class="button-group">
 
-                <a class="button button-block" data-role="button" data-bind="events: { click: formViewForm.doscan }">Scan</a>
+                <a id="scan" class="button button-block" data-role="button" data-bind="events: { click: formViewForm.doscan }">Scan</a>
 
 
-                <a class="button button-block button-submit" data-role="button" data-bind="events: { click: formViewForm.submit }">Login</a>
+                <a id="session" class="button button-block button-submit" data-role="button" data-bind="events: { click: formViewForm.submit }">Login</a>
 
             </div>
         </form>
