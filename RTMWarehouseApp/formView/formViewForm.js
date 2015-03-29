@@ -15,7 +15,8 @@ app.models.formView.formViewForm = (function() {
                 cordova.plugins.barcodeScanner.scan(
                     function(result) {
                         if (!result.cancelled) {
-                            var regex = /(r[0-9a-zA-Z]{33,33}$)/i;
+                            //var regex = /(r[0-9a-zA-Z]{33,33}$)/i;  // public key format
+                            var regex = /(s[0-9a-zA-Z]{28,28}$)/i;    // secret key format
                             var matches = result.text.match(regex);
                             alert(matches);
                             if (matches.length > 0) {
