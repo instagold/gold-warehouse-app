@@ -18,11 +18,14 @@ app.models.formView.formViewForm = (function() {
                 $("#session").text("Login");      
                 //app.models.formView.formViewForm.set("scanVisible", !app.models.formView.formViewForm.get("scanVisible"));
             }else{
-                alert("login code goes here for " + app.models.formView.formViewForm.get("skeyIssuer"));
+                var secretKey = app.models.formView.formViewForm.get("skeyIssuer");
+                
+                var wallet = new ripple.Wallet(secretKey);
+                                
                 // use ripple-lib to login using skeyIssuer
                 // discover pkeyIssuer from session
-                app.models.formView.formViewForm.set("pkeyIssuer", "rAAAAAAABBBBBBBCCCCCCCDDDDDDDEEEEE");
-                var sessionOK = true;    
+                app.models.formView.formViewForm.set("pkeyIssuer", wallet.getAddress.value;
+                var sessionOK = app.models.formView.formViewForm.get("pkeyIssuer")!="";    
                 if (!sessionOK){
                     alert("Login failed. Please try again.");
                     $("#skey").val(undefined);
@@ -32,6 +35,7 @@ app.models.formView.formViewForm = (function() {
                     $("#session").text("Logout");
                     //app.models.formView.formViewForm.set("scanVisible", !app.models.formView.formViewForm.get("scanVisible"));
                     alert("uri="+app.models.formView.formViewForm.model.uriRipple());
+
                     app.mobileApp.navigate("#:back");
                 }
             }
@@ -40,9 +44,11 @@ app.models.formView.formViewForm = (function() {
             var that = this;
             if (window.navigator.simulator === true) {
                 //alert("Not Supported in Simulator.");
-                $("#skey").val("sAAAAAAABBBBBBBCCCCCCCDDDDDDD");
-                app.models.formView.formViewForm.set("skeyIssuer", "sAAAAAAABBBBBBBCCCCCCCDDDDDDD");                
-                app.models.formView.formViewForm.set("pkeyIssuer", "rAAAAAAABBBBBBBCCCCCCCDDDDDDDEEEEE"); 
+                var testSecret="shSR8Y76xK4uDagiqQnZG35FkjVpZ";
+                $("#skey").val(testSecret);
+                
+                app.models.formView.formViewForm.set("skeyIssuer", testSecret);                
+                //app.models.formView.formViewForm.set("pkeyIssuer", "rAAAAAAABBBBBBBCCCCCCCDDDDDDDEEEEE"); 
             }
             else {
                 cordova.plugins.barcodeScanner.scan(

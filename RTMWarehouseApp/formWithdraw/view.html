@@ -1,27 +1,22 @@
-<div data-role="view" data-title="Withdraw Gold" data-layout="main" data-model="app.models.formWithdraw">
+<div data-role="view" data-title="Withdraw Gold" data-layout="main" data-model="app.models.formWithdraw" data-init="initWithdraw" data-before-show="foo">
     <div id="formWithdrawForm" class="form-view">
         <form>
+            
+            <div align="center">
+                <label>Send the amount you with to redeem to the address shown.</label>
+                <div id="qrcode"></div>
+            </div> 
+            <hr>
+            
             <ul class="form-content" data-role="listview" data-style="inset">
                 <li>
                     <label>Withdrawn (Troy Oz)
                         <input data-bind="value: formWithdrawForm.model.amtWithdrawn" type="number">
                     </label>
-                    <div >
-                        <h3>E-mail</h3>
-                        <div id="qrPayXAU"></div>
-                    </div>
-                    <div >
-                        <div  style="width: 500px;">
-                            <h4>Send XAU To</h4>
-                            <span data-role="qrcode"
-                                  data-error-correction="M"
-                                  data-bind="value: qrcode"
-                                  style="width: 180px"></span>
-                        </div>
-                    </div>
+                                    
                 </li>
             </ul>
-
+       
             <div class="button-group">
 
                 <a class="button button-block" data-role="button" data-bind="events: { click: formWithdrawForm.cancel }">Cancel</a>
@@ -33,3 +28,30 @@
         </form>
     </div>
 </div>
+
+<script>
+function initWithdraw(){
+    
+}
+    
+function foo(e) {
+    $("#qrcode").empty();
+    //if (qrcode) qrcode.clear();
+    var qrcode = new QRCode("qrcode", {
+        text: app.models.formView.formViewForm.model.uriRipple(),
+        width: 200,
+        height: 200,
+        colorDark : "#000000",
+        colorLight : "#ffffff",
+        correctLevel : QRCode.CorrectLevel.H
+    });
+    //qrcode.clear(); // clear the code.
+    //qrcode.makeCode(app.models.formView.formViewForm.model.uriRipple()); // make another code.
+}
+    
+function awaitXAU() {
+    //open websocket, subscribing to address
+    
+    //onmessage
+}
+</script>
