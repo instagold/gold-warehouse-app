@@ -1,11 +1,11 @@
 {
-  "ProjectName": "AppBuilder2",
+  "ProjectName": "RTMWarehouseApp",
   "ProjectGuid": "b1ea16e9-f5b3-4c13-aefb-50366f956a5e",
   "projectVersion": 1,
-  "AppIdentifier": "com.telerik.AppBuilder2",
-  "DisplayName": "AppBuilder2",
+  "AppIdentifier": "money.texasrepublic.warehouseapp",
+  "DisplayName": "Republic of Texas Money",
   "Author": "",
-  "Description": "",
+  "Description": "Gold Warehouse App",
   "BundleVersion": "1.0",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
