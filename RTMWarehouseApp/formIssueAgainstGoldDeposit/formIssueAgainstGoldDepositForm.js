@@ -9,6 +9,11 @@ app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm = (functi
             //app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.get("fboAccount");
             // use ripple-lib to send amtTendered XAU to fboAccount
             
+            alert("Send " + $("#amtTend").val()
+                    + " XAU from " + app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.get("fboAccount")
+                    + " to " + app.models.formView.formViewForm.get("pkeyIssuer")
+                 );
+            
         },
         cancel: function() {
             // unused
@@ -17,8 +22,10 @@ app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm = (functi
             var that = this;
             if (window.navigator.simulator === true) {
                 //alert("Not Supported in Simulator.");
-                $("#fbo").val("rAAAAAAABBBBBBBCCCCCCCDDDDDDDEEEEE");
-                app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.set("fboAccount", "rAAAAAAABBBBBBBCCCCCCCDDDDDDDEEEEE");                
+                var dummyAccount="rDummyDepositor";
+                
+                $("#fbo").val(dummyAccount);
+                app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.set("fboAccount", dummyAccount);                
                 
             }
             else {

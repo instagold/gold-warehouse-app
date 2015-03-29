@@ -4,9 +4,9 @@
   "projectVersion": 1,
   "AppIdentifier": "money.texasrepublic.warehouseapp",
   "DisplayName": "Republic of Texas Money",
-  "Author": "",
+  "Author": "InstaGold Team",
   "Description": "Gold Warehouse App",
-  "BundleVersion": "1.0.1",
+  "BundleVersion": "1.0.2",
   "AndroidVersionCode": "1",
   "iOSDeviceFamily": [
     "1",

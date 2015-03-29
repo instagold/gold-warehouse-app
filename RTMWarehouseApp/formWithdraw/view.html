@@ -6,6 +6,19 @@
                     <label>Withdrawn (Troy Oz)
                         <input data-bind="value: formWithdrawForm.model.amtWithdrawn" type="number">
                     </label>
+                    <div >
+                        <h3>E-mail</h3>
+                        <div id="qrPayXAU"></div>
+                    </div>
+                    <div >
+                        <div  style="width: 500px;">
+                            <h4>Send XAU To</h4>
+                            <span data-role="qrcode"
+                                  data-error-correction="M"
+                                  data-bind="value: qrcode"
+                                  style="width: 180px"></span>
+                        </div>
+                    </div>
                 </li>
             </ul>
 

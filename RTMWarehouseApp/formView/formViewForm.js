@@ -22,10 +22,18 @@ app.models.formView.formViewForm = (function() {
                 // use ripple-lib to login using skeyIssuer
                 // discover pkeyIssuer from session
                 app.models.formView.formViewForm.set("pkeyIssuer", "rAAAAAAABBBBBBBCCCCCCCDDDDDDDEEEEE");
-                $("#session").text("Logout");
-                //app.models.formView.formViewForm.set("scanVisible", !app.models.formView.formViewForm.get("scanVisible"));
-                alert("uri="+app.models.formView.formViewForm.model.uriRipple());
-                app.navigate("#main");
+                var sessionOK = true;    
+                if (!sessionOK){
+                    alert("Login failed. Please try again.");
+                    $("#skey").val(undefined);
+                }
+                else
+                {
+                    $("#session").text("Logout");
+                    //app.models.formView.formViewForm.set("scanVisible", !app.models.formView.formViewForm.get("scanVisible"));
+                    alert("uri="+app.models.formView.formViewForm.model.uriRipple());
+                    app.mobileApp.navigate("#:back");
+                }
             }
         },
         doscan: function() {

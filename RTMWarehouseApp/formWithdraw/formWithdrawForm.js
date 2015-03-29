@@ -1,7 +1,7 @@
 app.models.formWithdraw.formWithdrawForm = (function() {
     var viewModel = kendo.observable({
         model: {
-            amtWithdrawn: undefined,
+            amtWithdrawn: 0,
         },
         submit: function() {},
         cancel: function() {}
