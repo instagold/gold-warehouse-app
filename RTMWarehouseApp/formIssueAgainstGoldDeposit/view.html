@@ -9,14 +9,14 @@
                 </li>
                 <li>
                     <label>Deposit Account
-                        <input data-bind="value: formIssueAgainstGoldDepositForm.model.fboAccount" placeholder="Account to get XAU" type="text">
+                        <input id="fbo" data-bind="value: formIssueAgainstGoldDepositForm.model.fboAccount" placeholder="Account to get XAU" type="text">
                     </label>
                 </li>
             </ul>
 
             <div class="button-group">
 
-                <a class="button button-block" data-role="button" data-bind="events: { click: formIssueAgainstGoldDepositForm.cancel }">Cancel</a>
+                <a class="button button-block" data-role="button" data-bind="events: { click: formIssueAgainstGoldDepositForm.doscan }">Scan</a>
 
 
                 <a class="button button-block button-submit" data-role="button" data-bind="events: { click: formIssueAgainstGoldDepositForm.submit }">Issue XAU</a>
