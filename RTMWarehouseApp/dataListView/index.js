@@ -22,7 +22,7 @@ app.models.dataListView.dataListViewList = (function() {
             model: {
                 fields: {
 
-                    Texas Counties: {
+                    TexasCounties: {
                         field: 'Texas Counties',
                         defaultValue: ''
                     },
