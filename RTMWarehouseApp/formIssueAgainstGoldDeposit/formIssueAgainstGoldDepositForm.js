@@ -2,17 +2,47 @@ app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm = (functi
     var viewModel = kendo.observable({
         model: {
             amtTendered: undefined,
-            fboAccount: undefined,
+            fboAccount: 'rPLn7akArx61QZtV5vN5YK6AeCMkiZt5aG',
         },
-        submit: function() {
-            //app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.get("amtTendered");
-            //app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.get("fboAccount");
-            // use ripple-lib to send amtTendered XAU to fboAccount
+        submit: function() {            
             
-            alert("Send " + $("#amtTend").val()
-                    + " XAU from " + app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.get("fboAccount")
-                    + " to " + app.models.formView.formViewForm.get("pkeyIssuer")
-                 );
+            // show loading indicator
+            //kendo.ui.progress($("#waiting"), true);
+
+            // use ripple-lib to send amtTendered XAU to fboAccount      
+            var Remote = ripple.Remote;
+            var Amount = ripple.Amount;
+            var MY_ADDRESS = app.models.formView.formViewForm.get("pkeyIssuer");
+            var MY_SECRET  = app.models.formView.formViewForm.get("skeyIssuer");
+            
+            //var RECIPIENT  = app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.get("fboAccount");
+            var RECIPIENT  = "rPLn7akArx61QZtV5vN5YK6AeCMkiZt5aG";
+            var AMOUNT     = Amount.from_human($("#amtTend").val()+'XAU');
+            
+            
+            AMOUNT.set_issuer(MY_ADDRESS);
+            
+            
+            var remote = new Remote({servers:['wss://s1.ripple.com:443'] /* Remote options */ });
+
+            remote.connect(function() {
+              remote.setSecret(MY_ADDRESS, MY_SECRET);
+
+              var transaction = remote.createTransaction('Payment', {
+                account: MY_ADDRESS,
+                destination: RECIPIENT,
+                amount: AMOUNT
+              });
+
+              transaction.submit(function(err, res) {
+                /* handle submission errors / success */
+                  
+                  remote.disconnect();
+                  // hide loading indicator
+                  //kendo.ui.progress($("#waiting"), false);
+                  app.mobileApp.navigate("#:back");
+              });
+            });
             
         },
         cancel: function() {
@@ -22,7 +52,7 @@ app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm = (functi
             var that = this;
             if (window.navigator.simulator === true) {
                 //alert("Not Supported in Simulator.");
-                var dummyAccount="rDummyDepositor";
+                var dummyAccount="";
                 
                 $("#fbo").val(dummyAccount);
                 app.models.formIssueAgainstGoldDeposit.formIssueAgainstGoldDepositForm.set("fboAccount", dummyAccount);                

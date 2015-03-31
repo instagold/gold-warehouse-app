@@ -10,7 +10,7 @@ app.models.formView.formViewForm = (function() {
         },
         submit: function() {
             if ($("#session").text() == "Logout"){
-                alert("logout code goes here for " + app.models.formView.formViewForm.get("skeyIssuer"));
+                //alert("logout code goes here for " + app.models.formView.formViewForm.get("skeyIssuer"));
                 // use ripple-lib to terminate session
                 app.models.formView.formViewForm.set("skeyIssuer", undefined);
                 app.models.formView.formViewForm.set("pkeyIssuer", undefined);
@@ -24,7 +24,7 @@ app.models.formView.formViewForm = (function() {
                                 
                 // use ripple-lib to login using skeyIssuer
                 // discover pkeyIssuer from session
-                app.models.formView.formViewForm.set("pkeyIssuer", wallet.getAddress.value;
+                app.models.formView.formViewForm.set("pkeyIssuer", wallet.getAddress().value);
                 var sessionOK = app.models.formView.formViewForm.get("pkeyIssuer")!="";    
                 if (!sessionOK){
                     alert("Login failed. Please try again.");
@@ -34,15 +34,15 @@ app.models.formView.formViewForm = (function() {
                 {
                     $("#session").text("Logout");
                     //app.models.formView.formViewForm.set("scanVisible", !app.models.formView.formViewForm.get("scanVisible"));
-                    alert("uri="+app.models.formView.formViewForm.model.uriRipple());
-
+                    //alert("uri="+app.models.formView.formViewForm.model.uriRipple());
                     app.mobileApp.navigate("#:back");
                 }
             }
         },
         doscan: function() {
             var that = this;
-            if (window.navigator.simulator === true) {
+            if(true){
+            //if (window.navigator.simulator === true) {
                 //alert("Not Supported in Simulator.");
                 var testSecret="shSR8Y76xK4uDagiqQnZG35FkjVpZ";
                 $("#skey").val(testSecret);
